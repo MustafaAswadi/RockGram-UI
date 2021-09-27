@@ -1,10 +1,20 @@
 import Login from "./pages/login/Login";
+import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
+import Signup from "./pages/signup/Signup";
 
-function App() {
+const App = () => {
   return (
-    <div className="app">
-      <Login />
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/' exact>
+          <Login />
+        </Route>
+        <Route path='/signup' exact>
+          <Signup />
+        </Route>
+        <Redirect to='/'/>
+      </Switch>
+    </Router>
   );
 }
 

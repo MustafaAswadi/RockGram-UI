@@ -13,9 +13,8 @@
 }
 
 .login-logo{
-    width: 200px;
-    
-    margin-bottom: 40px;
+    width: 200px;    
+    margin-bottom: 20px;
 }
 .singup{
     margin-top: 10px;
@@ -47,14 +46,26 @@
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.185);
     border-radius: 10px;
 }
+
+.main2-logo{
+    width: 100%;
+
+}
 span{
     margin-left: 200px;
     color: #7b2dbf;
     font-family: 'Lobster', cursive;
     font-size: 40px;
 }
-
-
+.header-p{
+    font-size: 13px;
+    color: #1f033ab9
+}
+.footer-p{
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.616);
+    margin-top: 15px;
+}
 
 
 

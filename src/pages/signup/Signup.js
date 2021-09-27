@@ -1,25 +1,30 @@
 import '../../assets/styles/login.css'
 import Logo from '../../assets/img/logo.png'
+import appstore from '../../assets/img/appstore.png'
+import googleplay from '../../assets/img/googleplay.png'
 import main from '../../assets/img/main.jpg'
+import main2 from '../../assets/img/main2.png'
+
 import { Link } from 'react-router-dom'
 import Getapp from '../../shared/Getapp'
 
-
-
-const login = () => {
+const Signup = () => {
     return (
-        <div className='container' >
+        <div className='container' style={{marginTop:'30px'}}>
             <div className='row align-items-center'>
-                <div className="col" id='intro'>
+                <div className="col" id='intro2'>
                     <h1>Welcome to <span>RockGram!</span></h1>
-                    <img src={main} alt="rockgram logo"  className='main-logo'  />
-
+                    <img src={main2} alt="rockgram logo"  className='main2-logo'  />
+                   <Getapp/>
                 </div>
                 <div className="col">
                     <form className='login-form cart'>
                         <div className='header'>
                         <img src={Logo} alt="rockgram logo"  className='login-logo'  />
-
+                        <p className='header-p'><strong>Sign up to start a fascinating conversation with your friends.</strong></p>
+                        </div>
+                        <div className="mb-3">
+                            <input type="text" className="form-control" id="fullname" placeholder='Full Name'/>
                         </div>
                         <div className="mb-3">
                             <input type="email" className="form-control" id="Email" placeholder='Email' aria-describedby="emailHelp"/>
@@ -28,18 +33,18 @@ const login = () => {
                             <input type="password" className="form-control" placeholder='Password' id="Password"/>
                         </div>
                         <div className='d-grid gap-2'>
-                            <button type="submit" className="btn btn-primary btn-login">Login</button>
+                            <button type="submit" className="btn btn-primary btn-login">Sign Up</button>
                         </div>
+                        <p className='footer-p'>By signing up, you agree to our Terms , Data Policy and Cookies Policy .</p>
                     </form>
                     <div className='cart singup'>
-                        <p>Don't have an account? <Link to='/signup'> Sign up</Link></p>
-                        
+                        <p>Have an account? <Link to='/'>  Log in</Link></p>
                     </div>
-                    <Getapp/>
                 </div>
+                
             </div>
         </div>
     )
 }
 
-export default login
+export default Signup
