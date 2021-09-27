@@ -1,9 +1,9 @@
-import Home from "./containers/home/Home";
+import Login from "./pages/login/Login";
 
 function App() {
   return (
-    <div className="container">
-      <Home />
+    <div className="app">
+      <Login />
     </div>
   );
 }
