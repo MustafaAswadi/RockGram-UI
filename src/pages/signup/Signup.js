@@ -1,19 +1,17 @@
 import '../../assets/styles/login.css'
-import Logo from '../../assets/img/logo.png'
-import appstore from '../../assets/img/appstore.png'
-import googleplay from '../../assets/img/googleplay.png'
-import main from '../../assets/img/main.jpg'
+import Logo from '../../assets/img/logo2.png'
 import main2 from '../../assets/img/main2.png'
 
 import { Link } from 'react-router-dom'
 import Getapp from '../../shared/Getapp'
+import Header from '../../shared/Header'
 
 const Signup = () => {
     return (
         <div className='container' style={{marginTop:'30px'}}>
             <div className='row align-items-center'>
                 <div className="col" id='intro2'>
-                    <h1>Welcome to <span>RockGram!</span></h1>
+                    <Header />
                     <img src={main2} alt="rockgram logo"  className='main2-logo'  />
                    <Getapp/>
                 </div>
@@ -33,7 +31,7 @@ const Signup = () => {
                             <input type="password" className="form-control" placeholder='Password' id="Password"/>
                         </div>
                         <div className='d-grid gap-2'>
-                            <button type="submit" className="btn btn-primary btn-login">Sign Up</button>
+                            <button type="submit" className="btn btn-danger btn-login">Sign Up</button>
                         </div>
                         <p className='footer-p'>By signing up, you agree to our Terms , Data Policy and Cookies Policy .</p>
                     </form>
