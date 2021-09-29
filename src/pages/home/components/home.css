@@ -23,7 +23,7 @@
     overflow-y: scroll;
 }
 .user-icon{
-    background-color: #fe4153;
+    background-color: #c57ef7;
     border-radius: 100%;
     text-align: center;
     padding: 10px 0px;
@@ -127,7 +127,9 @@
 }
 
 
-
+li{
+    list-style: none;
+}
 
 .home-com-chat1{
     height: 7vh;
@@ -135,7 +137,7 @@
 
 }
 .home-com-chat2{
-    height: 72vh;
+    height: 71vh;
 }
 
 .active{
@@ -150,11 +152,29 @@
     text-align: center;
 }
 
+.chat-load{
+    height: 100%;
+    overflow-y: scroll;
 
+}
 
+.add-chat-btn-secation{
+    padding-top: 15px;
+    position: relative;
 
+}
 
-
+.add-chat-btn-secation .message-text-send{
+    margin-left: auto;
+    position: relative;
+    margin-top:  -90px;
+    right:  25px;
+ 
+}
+.add-chat-btn-secation .message-text-send button{
+    position: relative;
+    /* border: 10px solid white ; */
+}
 
 
 

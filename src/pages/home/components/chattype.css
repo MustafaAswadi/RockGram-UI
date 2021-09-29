@@ -1,0 +1,23 @@
+.chat-profile{
+    padding: 20px 0;
+    padding-right: 20px;
+    margin-right: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.055);
+    margin-left: -5px;
+}
+.message-time-chattype{
+    opacity: 0.5;
+    font-size: 13px;
+}
+.chat-profile .user-name{
+    font-size: 13px;
+}
+.chat-profile .user-text{
+    font-size: 12px;
+    opacity: 0.7;
+}
+.chat-profile .user-name,
+.chat-profile .user-text{
+    padding-left: 5px;
+    
+}
