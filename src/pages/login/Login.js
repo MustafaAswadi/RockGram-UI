@@ -4,10 +4,37 @@ import main from '../../assets/img/main.jpg'
 import { Link } from 'react-router-dom'
 import Getapp from '../../shared/Getapp'
 import Header from '../../shared/Header'
+import React, {useState} from 'react'
+import PropTypes from 'prop-types'
+import Axios from 'axios'
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min'
+
+async function loginUser(credentials) {
+     await Axios({
+        method: 'post',
+        url: 'http://localhost:3001/auth/login',
+        data: {email: credentials.email, password: credentials.password}
+    }).then(res => {
+        console.log(res.data);
+        return res.data;
+    })
+   }
+
+   export default function Login() {
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+
+    const handleSubmit = async e => {
+        e.preventDefault();
+        const token = await loginUser({
+          email,
+          password
+        });
+        console.log(token);
+
+      }
 
 
-
-const login = () => {
     return (
         <div className='container' >
             <div className='row align-items-center'>
@@ -16,15 +43,15 @@ const login = () => {
                     <img src={main} alt="rockgram logo"  className='main-logo' />
                 </div>
                 <div className="col">
-                    <form className='login-form cart' action='/home' method="GET">
+                    <form className='login-form cart' action='/home' method="GET" onSubmit={handleSubmit}>
                         <div className='header'>
                             <img src={Logo} alt="rockgram logo"  className='login-logo' style={{marginBottom: '3rem'}} />
                         </div>
                         <div className="mb-3">
-                            <input type="email" className="form-control" id="Email" placeholder='Email' aria-describedby="emailHelp"/>
+                            <input type="email" className="form-control" id="Email" placeholder='Email' aria-describedby="emailHelp" onChange={e => setEmail(e.target.value)}/>
                         </div>
                         <div className="mb-3">
-                            <input type="password" className="form-control" placeholder='Password' id="Password"/>
+                            <input type="password" className="form-control" placeholder='Password' id="Password" onChange={e => setPassword(e.target.value)}/>
                         </div>
                         <div className='d-grid gap-2'>
                             <button type="submit" className="btn btn-danger btn-login">Login</button>
@@ -42,5 +69,3 @@ const login = () => {
         </div>
     )
 }
-
-export default login
