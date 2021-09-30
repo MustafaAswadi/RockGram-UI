@@ -14,8 +14,8 @@ const Home = () => {
     return (
         <div className='container-fluid'>
 
-            <nav class="navbar navbar-light fixed-top" style={{padding:'30px',}} >
-                <div class="container-fluid" style={{ marginTop: '0px'}}>
+            <nav className="navbar navbar-light fixed-top" style={{padding:'30px',}} >
+                <div className="container-fluid" style={{ marginTop: '0px'}}>
                     <img src={logo} alt='RockGram Logo' className='header-logo'/>
                 </div>
             </nav>

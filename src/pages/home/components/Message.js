@@ -8,7 +8,7 @@ const Message = () => {
                 <div className='row message-container recevier'>
                     <div className='col-1'>
                         <div className='user-icon'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                             </svg>
                         </div>
@@ -25,7 +25,7 @@ const Message = () => {
                 <div className='row message-container recevier'>
                     <div className='col-1'>
                         <div className='user-icon'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-person-fill" viewBox="0 0 16 16">
                                 <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                             </svg>
                         </div>
@@ -72,13 +72,13 @@ const Message = () => {
 
             
             <div className='message-sender'>
-            <form class="row">
-                <div class="col-10 message-text-input">
+            <form className="row">
+                <div className="col-10 message-text-input">
                     <textarea className='form-control' rows='1'placeholder='Type a message'></textarea>
                 </div>
-                <div class="col-2 message-text-send">
-                    <button type="submit" class="btn btn-danger ">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cursor-fill" viewBox="0 0 16 16">
+                <div className="col-2 message-text-send">
+                    <button type="submit" className="btn btn-danger ">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-cursor-fill" viewBox="0 0 16 16">
                         <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"/>
                     </svg>
                     </button>

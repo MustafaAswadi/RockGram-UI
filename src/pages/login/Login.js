@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom'
 import Getapp from '../../shared/Getapp'
 import Header from '../../shared/Header'
 import React, {useState} from 'react'
-import PropTypes from 'prop-types'
 import Axios from 'axios'
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min'
 
 async function loginUser(credentials) {
      await Axios({
