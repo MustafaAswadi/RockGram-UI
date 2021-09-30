@@ -6,34 +6,37 @@ import Getapp from '../../shared/Getapp'
 import Header from '../../shared/Header'
 import React, {useState} from 'react'
 import Axios from 'axios'
+import {useHistory} from 'react-router-dom'
 
 async function loginUser(credentials) {
+
      await Axios({
         method: 'post',
         url: 'http://localhost:3001/auth/login',
         data: {email: credentials.email, password: credentials.password}
     }).then(res => {
-        console.log(res.data);
+        console.log("res.data",res.data);
         return res.data;
     })
    }
 
    export default function Login() {
+    const history = useHistory();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
     const handleSubmit = async e => {
-        e.preventDefault();
+        e.preventDefault()
         const token = await loginUser({
           email,
           password
         });
-        console.log(token);
-
+        history.push('/home');
       }
 
 
     return (
+
         <div className='container' >
             <div className='row align-items-center'>
                 <div className="col" id='intro'>
@@ -41,7 +44,7 @@ async function loginUser(credentials) {
                     <img src={main} alt="rockgram logo"  className='main-logo' />
                 </div>
                 <div className="col">
-                    <form className='login-form cart' action='/home' method="GET" onSubmit={handleSubmit}>
+                    <form className='login-form cart' onSubmit={handleSubmit}>
                         <div className='header'>
                             <img src={Logo} alt="rockgram logo"  className='login-logo' style={{marginBottom: '3rem'}} />
                         </div>
