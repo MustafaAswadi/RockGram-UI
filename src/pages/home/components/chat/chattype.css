@@ -8,9 +8,14 @@
 .message-time-chattype{
     opacity: 0.5;
     font-size: 13px;
+    display: block;
+    text-align: left;
 }
 .chat-profile .user-name{
     font-size: 13px;
+    position: relative;
+    top: 13px;
+
 }
 .chat-profile .user-text{
     font-size: 12px;
