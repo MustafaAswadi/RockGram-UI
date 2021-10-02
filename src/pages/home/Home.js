@@ -1,9 +1,11 @@
 import './components/home.css'
 import logo from '../../assets/img/logo2.png'
 import  {React} from 'react';
-import Chat from './components/Chat';
-import Message from './components/Message';
-import Profile from './components/Profile';
+import Message from './components/message/Message';
+import Profile from './components/profile/Profile';
+import Chat from './components/chat/Chat';
+
+
 
 
 const Home = () => {
@@ -23,7 +25,7 @@ const Home = () => {
             
             <div className='row'>
                 {/* ============== CHAT =============== */}
-                <Chat />
+                <Chat/>
 
                 {/* ============== MESSAGE =============== */}
                 <Message/>
@@ -31,7 +33,9 @@ const Home = () => {
 
 
                 {/* ============== PROFILE =============== */}
-                <Profile/>
+
+                <Profile userName='Ab Etemadi' userEmail='ab.Etmadi@yahoo.com' chatUserName='Mustafa Aswadi' chatUserEmail='mustafaaswadi16@gmil.com'/>
+
 
             </div>
         </div>

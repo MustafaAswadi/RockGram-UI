@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import Getapp from '../../shared/Getapp'
 import Header from '../../shared/Header'
 import Axios from 'axios'
-import useToken from "./utils/useToken";
+import {useHistory} from 'react-router-dom'
 
 async function SignUpUser(credentials) {
     await Axios({
@@ -20,6 +20,7 @@ async function SignUpUser(credentials) {
   }
 
 const Signup = () => {
+    const history = useHistory();
     const [email, setEmail] = useState();
     const [fullName, setFullName] = useState();
     const [password, setPassword] = useState();
@@ -31,7 +32,7 @@ const Signup = () => {
           password,
           fullName
         });
-        console.log(token);
+        history.push('/home');
 
       }
     return (
