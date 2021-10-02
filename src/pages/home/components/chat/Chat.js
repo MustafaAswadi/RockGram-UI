@@ -20,7 +20,12 @@ const Chat = () => {
                     </div>
                 </div>
                 <div className='chat-conyent home-com home-com-chat2'>
-                <div className='chat-load'> { isPersonal ? <Personal name='Mustafa Aswadi' lastMsg='hi' time='4:40PM'/>:  <Group name='RockStar' lastMsg='Hello' time='4:10PM'/>} </div>         
+
+                <div className='chat-load'> { isPersonal ? 
+                    <Personal />:  
+                    <Group name='RockStar' lastMsg='Hello' time='4:10PM'/>} 
+                </div>   
+
                     <CreateChat modalTitle={`Create ${isPersonal ? 'Personal Chat': 'Groups Chat'}`}/>
                 </div>
             </div>    
