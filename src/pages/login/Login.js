@@ -7,6 +7,7 @@ import Header from '../../shared/Header'
 import React, {useState} from 'react'
 import Axios from 'axios'
 import {useHistory} from 'react-router-dom'
+import useToken from './utils/useToken';
 
 async function loginUser(credentials) {
 
@@ -15,12 +16,13 @@ async function loginUser(credentials) {
         url: 'http://localhost:3001/auth/login',
         data: {email: credentials.email, password: credentials.password}
     }).then(res => {
-        console.log("res.data",res.data);
+        useToken.setToken(res.data);
+        console.log("-------------",useToken.getToken());
         return res.data;
     })
    }
 
-   export default function Login() {
+   export default function Login({setToken}) {
     const history = useHistory();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();

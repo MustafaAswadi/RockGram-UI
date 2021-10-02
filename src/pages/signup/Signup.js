@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import Getapp from '../../shared/Getapp'
 import Header from '../../shared/Header'
 import Axios from 'axios'
+import useToken from "./utils/useToken";
 
 async function SignUpUser(credentials) {
     await Axios({

@@ -2,8 +2,12 @@ import Login from "./pages/login/Login";
 import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
 import Signup from "./pages/signup/Signup";
 import Home from "./pages/home/Home";
+import useToken from "./utils/useToken";
 
 const App = () => {
+
+  const { token, setToken } = useToken();
+
   return (
     <Router>
       <Switch>
