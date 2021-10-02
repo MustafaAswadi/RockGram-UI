@@ -1,29 +1,55 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './chattype.css'
-import { Link } from 'react-router-dom'
 import PresonalChatIcon from '../../../../shared/PresonalChatIcon'
-import ChatDetieas from './ChatDetieas'
+import ChatDetail from './ChatDetail'
+import { fetchChats } from './actions/chatsAction'
+import { connect } from 'react-redux'
 
+class Personal extends Component {    
+    state ={
+        personal: []
+    };
 
+    componentDidMount(){
+        this.props.fetchChats();
+    }
 
-const Personal = (chat) => {
-    return (
-        <div>
-            <ul>
-                <Link to='chat/:id'>
-                <li className='chat-profile'>
-                    <div className='row'>
-                        <div className='col-2'>
+     getDate(date) {
+        var d = new Date(date);
+        var n = d.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
+        return n;
+    }
+
+    render() {
+        const {chats} = this.props;
+        return (
+            <div>
+                <ul>
+                    {chats.map(chat => (
+                        <ChatDetail key={chat.id} name={chat.name} lastMsg='csdd' time={this.getDate(chat.date)} chatId={chat.id}>
+                            {console.log( typeof chat.date)}
                             <PresonalChatIcon width='30'/>
-                        </div>
-                        <ChatDetieas name={chat.name} lastMsg={chat.lastMsg} time={chat.time} />
-                    </div>
-                </li>
-                </Link>
-
-            </ul>
-        </div>
-    )
+                        </ChatDetail>     
+                    ))}
+                </ul>
+            </div>
+        );
+    }
 }
 
-export default Personal
+const mapStateToProps =({ chats, fetching, error }) =>{
+    return {
+        chats,
+        fetching,
+        error
+    };
+}
+
+const mapDispatchToProps = {
+    fetchChats
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Personal);
+    
+
+
