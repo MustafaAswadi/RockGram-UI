@@ -1,6 +1,6 @@
 import './components/home.css'
 import logo from '../../assets/img/logo2.png'
-import  {React} from 'react';
+import  {React, useEffect} from 'react';
 import Message from './components/message/Message';
 import Profile from './components/profile/Profile';
 import Chat from './components/chat/Chat';
@@ -11,7 +11,9 @@ import Chat from './components/chat/Chat';
 const Home = () => {
 
     
-    
+    useEffect(()=>{
+        console.log(sessionStorage.getItem('token'));
+    })
 
     return (
         <div className='container-fluid'>

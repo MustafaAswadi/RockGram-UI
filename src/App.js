@@ -12,10 +12,10 @@ const App = () => {
     <Router>
       <Switch>
         <Route path='/' exact>
-          <Login />
+          <Login setToken= {setToken} />
         </Route>
         <Route path='/signup' exact>
-          <Signup />
+          <Signup setToken= {setToken}/>
         </Route>
         <Route path='/home' exact>
           <Home />

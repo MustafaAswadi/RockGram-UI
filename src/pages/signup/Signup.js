@@ -14,12 +14,13 @@ async function SignUpUser(credentials) {
        url: 'http://localhost:3001/user',
        data: {fullname: credentials.fullName, email: credentials.email, password: credentials.password}
    }).then(res => {
-       console.log(res.data);
+       tken = res.data;
        return res.data;
    })
   }
+  var tken;
 
-const Signup = () => {
+const Signup = ({setToken}) => {
     const history = useHistory();
     const [email, setEmail] = useState();
     const [fullName, setFullName] = useState();
@@ -32,6 +33,7 @@ const Signup = () => {
           password,
           fullName
         });
+        setToken(tken);
         history.push('/home');
 
       }

@@ -7,7 +7,9 @@ import Header from '../../shared/Header'
 import React, {useState} from 'react'
 import Axios from 'axios'
 import {useHistory} from 'react-router-dom'
-import useToken from './utils/useToken';
+import useToken from '../../utils/useToken'
+import PropTypes from 'prop-types';
+
 
 async function loginUser(credentials) {
 
@@ -16,12 +18,12 @@ async function loginUser(credentials) {
         url: 'http://localhost:3001/auth/login',
         data: {email: credentials.email, password: credentials.password}
     }).then(res => {
-        useToken.setToken(res.data);
-        console.log("-------------",useToken.getToken());
+        // console.log("-------------",useToken.getToken());
+        tken = res.data;
         return res.data;
     })
    }
-
+   var tken;
    export default function Login({setToken}) {
     const history = useHistory();
     const [email, setEmail] = useState();
@@ -34,6 +36,7 @@ async function loginUser(credentials) {
           password
         });
         history.push('/home');
+        setToken(tken);
       }
 
 
@@ -72,3 +75,7 @@ async function loginUser(credentials) {
         </div>
     )
 }
+
+Login.propTypes = {
+    setToken: PropTypes.func.isRequired
+  };
