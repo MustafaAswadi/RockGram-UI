@@ -4,14 +4,10 @@ import  {React} from 'react';
 import Message from './components/message/Message';
 import Profile from './components/profile/Profile';
 import Chat from './components/chat/Chat';
-import { Provider } from 'react-redux';
-import store from '../../shared/redux/store';
 
 
 
 const Home = () => {
-
-    
     
 
     return (
@@ -25,13 +21,12 @@ const Home = () => {
 
             
             <div className='row'>
-            <Provider store={store}>
 
                 {/* ============== CHAT =============== */}
                 <Chat/>
 
                 {/* ============== MESSAGE =============== */}
-                <Message/>
+                <Message />
 
 
 
@@ -39,7 +34,6 @@ const Home = () => {
 
                 <Profile userName='Ab Etemadi' userEmail='ab.Etmadi@yahoo.com' chatUserName='Mustafa Aswadi' chatUserEmail='mustafaaswadi16@gmil.com'/>
 
-            </Provider>
             </div>
         </div>
     )

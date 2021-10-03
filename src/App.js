@@ -13,7 +13,7 @@ const App = () => {
         <Route path='/signup' exact>
           <Signup />
         </Route>
-        <Route path='/home' exact>
+        <Route path='/home' >
           <Home />
         </Route>
         {/* <Redirect to='/'/> */}

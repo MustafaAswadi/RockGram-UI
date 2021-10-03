@@ -20,9 +20,7 @@ const EditeProfile = () => {
                         <div className="mb-3">
                             <input type="text" className="form-control" id="fullname" placeholder="full Name"/>
                         </div>
-                        <div className="mb-3">
-                            <input type="email" className="form-control" id="Email2" placeholder="Email" aria-describedby="emailHelp"/>
-                        </div>
+                        
                         <div className="d-grid gap-2">
                             <button type="submit" className="btn btn-danger btn-login">Submit</button>
                         </div>

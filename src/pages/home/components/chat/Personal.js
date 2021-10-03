@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import './chattype.css'
-import PresonalChatIcon from '../../../../shared/PresonalChatIcon'
-import ChatDetail from './ChatDetail'
-import { fetchChats } from './actions/chatsAction'
 import { connect } from 'react-redux'
+import './chattype.css'
+import { fetchPersonalChats } from './actions/chatsAction'
+import ChatDetail from './ChatDetail'
+import PresonalChatIcon from '../../../../shared/PresonalChatIcon'
 
 class Personal extends Component {    
     state ={
@@ -11,28 +11,34 @@ class Personal extends Component {
     };
 
     componentDidMount(){
-        this.props.fetchChats();
+        this.props.fetchPersonalChats();
     }
 
      getDate(date) {
         var d = new Date(date);
-        var n = d.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
-        return n;
+        var time = d.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
+        return time;
     }
 
     render() {
+      
+
         const {chats} = this.props;
+        {console.log(chats)}
         return (
             <div>
                 <ul>
+                    
                     {chats.map(chat => (
-                        <ChatDetail key={chat.id} name={chat.name} lastMsg='csdd' time={this.getDate(chat.date)} chatId={chat.id}>
-                            {console.log( typeof chat.date)}
+                        <ChatDetail key={chat.id} name={chat.name} time={this.getDate(chat.date)} chatId={chat.id}>
                             <PresonalChatIcon width='30'/>
                         </ChatDetail>     
                     ))}
+                    {(chats.length === 0) && <h1 className='nochat'>------ NO Chats ------</h1>}
+
                 </ul>
             </div>
+
         );
     }
 }
@@ -46,7 +52,7 @@ const mapStateToProps =({ chats, fetching, error }) =>{
 }
 
 const mapDispatchToProps = {
-    fetchChats
+    fetchPersonalChats
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (Personal);

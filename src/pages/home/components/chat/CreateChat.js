@@ -1,7 +1,8 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import Modal from '../../../../shared/Modal'
 
 const CreateChat = (props) => {
+    const {addMember, setAddMember} = useState(1)
 
     return (
         <div>
@@ -16,9 +17,14 @@ const CreateChat = (props) => {
             </div>
             <Modal title={props.modalTitle} id='addchat'>
                 <form className="login-form cart" >
+                    {props.isPersonal && <div className="mb-3">
+                        <input type="text" className="form-control" id="chatName" placeholder="Groups Name" />
+                    </div>}
                     <div className="mb-3">
                         <input type="email" className="form-control" id="Email1" placeholder="Email" aria-describedby="emailHelp"/>
+                        {addMember && <input type="email" className="form-control" id="Email1" placeholder="Email" aria-describedby="emailHelp"/>}
                     </div>
+                    {props.isPersonal && <button className='addMembertoGroups' onClick={()=>setAddMember(2)}>+</button>}
                     <div className="d-grid gap-2">
                         <button type="submit" className="btn btn-danger btn-login">Create</button>
                     </div>
