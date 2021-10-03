@@ -1,15 +1,18 @@
 import Login from "./pages/login/Login";
 import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom'
 import Signup from "./pages/signup/Signup";
+import {Provider} from "react-redux"
 import Home from "./pages/home/Home";
 import useToken from "./utils/useToken";
+import store from "./shared/redux/store";
 
 const App = () => {
 
   const { token, setToken } = useToken();
 
   return (
-    <Router>
+   <Provider store= {store}>
+      <Router>
       <Switch>
         <Route path='/' exact>
           <Login setToken= {setToken} />
@@ -23,6 +26,7 @@ const App = () => {
         {/* <Redirect to='/'/> */}
       </Switch>
     </Router>
+   </Provider>
   );
 }
 

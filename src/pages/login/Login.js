@@ -15,16 +15,17 @@ async function loginUser(credentials) {
 
      await Axios({
         method: 'post',
-        url: 'http://localhost:3001/auth/login',
+        url: 'http://localhost:3002/auth/login',
         data: {email: credentials.email, password: credentials.password}
     }).then(res => {
-        // console.log("-------------",useToken.getToken());
-        tken = res.data;
+        tken = res.data[1];
+        activeUserId = res.data[0]['id']
         return res.data;
     })
    }
    var tken;
-   export default function Login({setToken}) {
+   var activeUserId; 
+   export default function Login({setToken,}) {
     const history = useHistory();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -35,8 +36,9 @@ async function loginUser(credentials) {
           email,
           password
         });
-        history.push('/home');
+        sessionStorage.setItem('activeUserId', activeUserId )
         setToken(tken);
+        history.push('/home');
       }
 
 

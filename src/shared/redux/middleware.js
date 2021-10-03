@@ -1,5 +1,6 @@
 import axios from "axios";
-const basedURL = 'http://localhost:3001/';
+import  {React, useEffect} from 'react';
+const basedURL = 'http://localhost:3002/';
 
 const handleSuccess = ({response, type, next})=> {
     next({
@@ -15,12 +16,14 @@ const handleFailed = ({error, type, next})=> {
 }
 
 
-const apiMiddleware = store => next => action => {
-    const {isEndpointCall, type} = action;
 
+
+const apiMiddleware =  store => next => action => {
+    const {isEndpointCall, type} = action;
     if (isEndpointCall) {
         next({type});
         const { method, successType, failedType, headers } = action
+        
         axios(`${basedURL}${action.endpoint}`,{
             method,
             headers

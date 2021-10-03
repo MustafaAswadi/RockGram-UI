@@ -1,6 +1,5 @@
 import { Type } from "./actionType";
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYi5ldG1hZGlAeWFob28uY29tIiwiaWF0IjoxNjMzMTczMzIyfQ.4d1L18_kapQY000pcuqMAwKXWhJJBfx_4Dymjg7YYo0'
 export const fetchChats = () => {
     return {
         type: Type.FETCH_CHATS,
@@ -9,6 +8,6 @@ export const fetchChats = () => {
         isEndpointCall: true,
         endpoint : 'chat/personal/',
         method: 'GET',
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` }
     }
 }
