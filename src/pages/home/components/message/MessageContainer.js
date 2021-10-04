@@ -29,6 +29,7 @@ class MessageContainer extends Component {
    
     render() {
         const {messages} = this.props;
+        const activUserId = sessionStorage.getItem('activeUserId')
         return (
         <div className='home-com message-seaction'>
 
@@ -36,7 +37,7 @@ class MessageContainer extends Component {
                <div id='msg-content2'>
                 {(messages === undefined) ? 'Loading': messages.map(message => (
                     <div key={message.id}>  
-                        {(message.userId === 1)  ?
+                        {(message.userId == activUserId)  ?
                             <Sender time={this.getDate(message.date)} text={message.text} />:
                             <Recevier time={this.getDate(message.date)} text={message.text}/>
                         }

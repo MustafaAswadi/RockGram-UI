@@ -3,7 +3,7 @@ import Axios from 'axios'
 import {useHistory} from 'react-router-dom'
 
 async function SignUpUser(credentials) {
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYi5ldG1hZGlAeWFob28uY29tIiwiaWF0IjoxNjMzMzMyNzU5fQ.XFpfb3ENwuDCRe0JK8mO8jc2BBI253rzDklF28JeyDw'
+const token = sessionStorage.getItem('token')
 const queryParams = new URLSearchParams(window.location.search);
 const chatId = queryParams.get('chatId');
     await Axios({

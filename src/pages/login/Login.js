@@ -7,6 +7,8 @@ import Header from '../../shared/Header'
 import React, {useState} from 'react'
 import Axios from 'axios'
 import {useHistory} from 'react-router-dom'
+import PropTypes from 'prop-types';
+
 
 async function loginUser(credentials) {
 
@@ -15,12 +17,18 @@ async function loginUser(credentials) {
         url: 'http://localhost:3002/auth/login',
         data: {email: credentials.email, password: credentials.password}
     }).then(res => {
-        console.log("res.data",res.data);
+        tken = res.data[1];
+        activeUserId = res.data[0]['id']
+        userName = res.data[0]['fullname']
+        userEmail =res.data[0]['email']
         return res.data;
     })
    }
-
-   export default function Login() {
+   var tken;
+   var activeUserId; 
+   var userName;
+   var userEmail;
+   export default function Login({setToken,}) {
     const history = useHistory();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -31,6 +39,10 @@ async function loginUser(credentials) {
           email,
           password
         });
+        sessionStorage.setItem('activeUserId', activeUserId )
+        sessionStorage.setItem('userName', userName )
+        sessionStorage.setItem('userEmail', userEmail )
+        setToken(tken);
         history.push('/home');
       }
 
@@ -70,3 +82,7 @@ async function loginUser(credentials) {
         </div>
     )
 }
+
+Login.propTypes = {
+    setToken: PropTypes.func.isRequired
+  };

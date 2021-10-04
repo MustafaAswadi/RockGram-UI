@@ -1,7 +1,6 @@
 import axios from "axios";
 const basedURL = 'http://localhost:3002/';
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYi5ldG1hZGlAeWFob28uY29tIiwiaWF0IjoxNjMzMjgwMTU2fQ.OtDvnJaW9hgf4iEVZrDJlQLFhd2HSNgCRxZo5SZJpzI'
 
 
 const handleSuccess = ({response, type, next})=> {
@@ -26,7 +25,7 @@ const apiMiddleware = store => next => action => {
         const { method, successType, failedType } = action
         axios(`${basedURL}${action.endpoint}`,{
             method,
-            headers: { Authorization: `Bearer ${token}` }
+            headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` }
 
         })
         .then(response=> handleSuccess({response, type: successType, next}))

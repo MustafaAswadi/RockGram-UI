@@ -5,7 +5,7 @@ import EditeProfile from './EditeProfile'
 import ChatProfile from './ChatProfile'
 
 
-const Profile = (props) => {
+const Profile = () => {
     return (
         <div className='col-2'>
             <ChatProfile/>
@@ -15,10 +15,10 @@ const Profile = (props) => {
                 <div className='profile-content'>
                     <PresonalChatIcon width='60'/>
                     <div className='user-name'>
-                        <strong>{props.userName}</strong>
+                        <strong>{sessionStorage.getItem('userName')}</strong>
                     </div>
                     <div className='user-email'>
-                        <p>{props.userEmail}</p>
+                        <p>{sessionStorage.getItem('userEmail')}</p>
                     </div>
                     <EditeProfile/>
                     
