@@ -9,7 +9,6 @@ import Chat from './components/chat/Chat';
 
 const Home = () => {
     
-
     return (
         <div className='container-fluid'>
 
