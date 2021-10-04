@@ -10,3 +10,16 @@ export const fetchMessages = (chatId) => {
         method: 'GET',
     }
 }
+
+
+export const addMessage = (messageObj, chatId) =>{
+    return {
+        type: Type.ADD_MESSAGE,
+        successType: Type.ADD_MESSAGE_SUCCESS,
+        failedType: Type.ADD_MESSAGE_FAILED,
+        isEndpointCall: true,
+        endpoint : `message/${chatId}`,
+        method: 'POST',
+        data: messageObj
+    }
+}

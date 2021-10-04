@@ -3,11 +3,12 @@ import Axios from 'axios'
 import {useHistory} from 'react-router-dom'
 
 async function SignUpUser(credentials) {
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYi5ldG1hZGlAeWFob28uY29tIiwiaWF0IjoxNjMzMTczMzIyfQ.4d1L18_kapQY000pcuqMAwKXWhJJBfx_4Dymjg7YYo0'
-    
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYi5ldG1hZGlAeWFob28uY29tIiwiaWF0IjoxNjMzMzMyNzU5fQ.XFpfb3ENwuDCRe0JK8mO8jc2BBI253rzDklF28JeyDw'
+const queryParams = new URLSearchParams(window.location.search);
+const chatId = queryParams.get('chatId');
     await Axios({
        method: 'post',
-       url: 'http://localhost:3001/message/1',
+       url: `http://localhost:3002/message/${chatId}`,
        data: {text: credentials.text},
        headers: { Authorization: `Bearer ${token}` }
 
@@ -17,9 +18,9 @@ const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJhYi5l
        return res.data;
    })
    function refreshPage() {
-    setTimeout(()=>{
-        window.location.reload(true)
-    },200)
+    // setTimeout(()=>{
+    //     window.location.reload(true)
+    // },200)
 }
 }
 const CreateMessage = () => {
@@ -35,9 +36,6 @@ const CreateMessage = () => {
         setText('')
 
       }
-
-
-
 
     return (
         <div className='message-sender'>

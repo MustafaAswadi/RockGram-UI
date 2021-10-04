@@ -21,10 +21,7 @@ class Personal extends Component {
     }
 
     render() {
-      
-
         const {chats} = this.props;
-        {console.log(chats)}
         return (
             <div>
                 <ul>

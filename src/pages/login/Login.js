@@ -12,7 +12,7 @@ async function loginUser(credentials) {
 
      await Axios({
         method: 'post',
-        url: 'http://localhost:3001/auth/login',
+        url: 'http://localhost:3002/auth/login',
         data: {email: credentials.email, password: credentials.password}
     }).then(res => {
         console.log("res.data",res.data);
