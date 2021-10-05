@@ -5,11 +5,17 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.055);
     margin-left: -5px;
 }
+.message-time-chattype1{
+    text-align: right;
+}
 .message-time-chattype{
     opacity: 0.5;
     font-size: 13px;
     display: block;
-    text-align: left;
+    position: relative;
+    left: 15px;
+    bottom: 30px;
+    color: rgba(0, 0, 0, 0.774);
 }
 .chat-profile .user-name{
     font-size: 13px;
@@ -26,3 +32,24 @@
     padding-left: 5px;
     
 }
+
+.activeChat{
+    border-left: 10px solid #fe4153;
+    border-radius: 10px;
+
+}
+.addMembertoGroups{
+    background-color: #fe4153;
+    color: white;
+    /* font-size: 22px; */
+    padding: -10px 5px;
+    border-radius: 5px;
+    border: none;
+    position: relative;
+    bottom: 13px;
+    left: 160px;
+}
+.addMembertoGroups:hover{
+    background-color: #f02a3e;
+}
+

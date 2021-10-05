@@ -1,6 +1,7 @@
 import axios from "axios";
-import  {React, useEffect} from 'react';
 const basedURL = 'http://localhost:3002/';
+
+
 
 const handleSuccess = ({response, type, next})=> {
     next({
@@ -22,11 +23,11 @@ const apiMiddleware =  store => next => action => {
     const {isEndpointCall, type} = action;
     if (isEndpointCall) {
         next({type});
-        const { method, successType, failedType, headers } = action
-        
+        const { method, successType, failedType } = action
         axios(`${basedURL}${action.endpoint}`,{
             method,
-            headers
+            headers: { Authorization: `Bearer ${sessionStorage.getItem('token')}` }
+
         })
         .then(response=> handleSuccess({response, type: successType, next}))
         .catch(error => handleFailed({error, type: failedType, next}));

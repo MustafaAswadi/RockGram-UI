@@ -8,7 +8,6 @@ import Chat from './components/chat/Chat';
 
 
 const Home = () => {
-
     return (
         <div className='container-fluid'>
 
@@ -30,7 +29,7 @@ const Home = () => {
 
                 {/* ============== PROFILE =============== */}
 
-                <Profile userName='Ab Etemadi' userEmail='ab.Etmadi@yahoo.com' chatUserName='Mustafa Aswadi' chatUserEmail='mustafaaswadi16@gmil.com'/>
+                <Profile />
 
             
             </div>

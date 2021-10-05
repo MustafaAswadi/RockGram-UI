@@ -4,14 +4,12 @@ import Signup from "./pages/signup/Signup";
 import {Provider} from "react-redux"
 import Home from "./pages/home/Home";
 import useToken from "./utils/useToken";
-import store from "./shared/redux/store";
 
 const App = () => {
 
   const { token, setToken } = useToken();
 
   return (
-   <Provider store= {store}>
       <Router>
       <Switch>
         <Route path='/' exact>
@@ -26,7 +24,6 @@ const App = () => {
         {/* <Redirect to='/'/> */}
       </Switch>
     </Router>
-   </Provider>
   );
 }
 
