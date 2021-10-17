@@ -8,7 +8,8 @@ import Header from '../../shared/Header'
 
 class Signup extends React.Component {
     render() { 
-        return     <div className='container' style={{marginTop:'30px'}}>
+        return (    
+      <div className='container' style={{marginTop:'30px'}}>
         <div className='row align-items-center'>
             <div className="col" id='intro2'>
                 <Header />
@@ -32,6 +33,8 @@ class Signup extends React.Component {
                     </div>
                     <div className='d-grid gap-2'>
                         <button type="submit" className="btn btn-danger btn-login">Sign Up</button>
+
+
                     </div>
                     <p className='footer-p'>By signing up, you agree to our Terms , Data Policy and Cookies Policy .</p>
                 </form>
@@ -42,7 +45,7 @@ class Signup extends React.Component {
             
         </div>
     </div>
-;
+)
     }
 }
  

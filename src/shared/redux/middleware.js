@@ -17,9 +17,10 @@ const handleFailed = ({error, type, next})=> {
 }
 
 
-const apiMiddleware = store => next => action => {
-    const {isEndpointCall, type} = action;
 
+
+const apiMiddleware =  store => next => action => {
+    const {isEndpointCall, type} = action;
     if (isEndpointCall) {
         next({type});
         const { method, successType, failedType } = action
