@@ -1,47 +1,13 @@
 import React,{useState} from 'react'
-import Axios from 'axios'
-import {useHistory} from 'react-router-dom'
 
-async function SignUpUser(credentials) {
-const token = sessionStorage.getItem('token')
-const queryParams = new URLSearchParams(window.location.search);
-const chatId = queryParams.get('chatId');
-    await Axios({
-       method: 'post',
-       url: `http://localhost:3002/message/${chatId}`,
-       data: {text: credentials.text},
-       headers: { Authorization: `Bearer ${token}` }
-
-   }).then(res => {
-       console.log(res.data);
-       refreshPage();
-       return res.data;
-   })
-   function refreshPage() {
-    // setTimeout(()=>{
-    //     window.location.reload(true)
-    // },200)
-}
-}
 const CreateMessage = () => {
-    const history = useHistory();
-    const [text, setText] = useState();
 
-    const handleSubmit = async e => {
-        e.preventDefault();
-        const token = await SignUpUser({
-          text
-        });
-        history.push('/home');
-        setText('')
-
-      }
 
     return (
         <div className='message-sender'>
-            <form className="row"  onSubmit={handleSubmit}>
+            <form className="row"  >
                 <div className="col-10 message-text-input">
-                    <textarea className='form-control' rows='1'placeholder='Type a message' onChange={e => setText(e.target.value)}></textarea>
+                    <textarea className='form-control' rows='1'placeholder='Type a message' ></textarea>
                 </div>
                 <div className="col-2 message-text-send">
                     <button type="submit" className="btn btn-danger ">

@@ -1,18 +1,14 @@
 
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import './chattype.css'
-import { fetchGroupChats } from './actions/chatsAction'
-import ChatDetail from './ChatDetail'
-import GroupsChatIcon from '../../../../shared/GroupsChatIcon'
+import ChatDetail from './ChatDetail';
+import GroupsChatIcon from '../../../../shared/GroupsChatIcon';
+
+
 
 class Group extends Component {    
-    state ={
-        group: []
-    };
-
-    componentDidMount(){
-        this.props.fetchGroupChats();
+    state={
+        chats:[]
     }
 
      getDate(date) {
@@ -22,15 +18,16 @@ class Group extends Component {
     }
 
     render() {
-        const {chats} = this.props;
+        const {chats} = this.state;
+
         return (
             <div>
                 <ul>
                     {chats.map(chat => (
-                        <ChatDetail key={chat.id} name={chat.name} time={this.getDate(chat.date)} chatId={chat.id}>
+                         <ChatDetail key={chat.id} name={chat.name} time={this.getDate(chat.date)} chatId={chat.id}>
                             <GroupsChatIcon width='30'/>
-                        </ChatDetail>     
-                    ))}
+                        </ChatDetail>      
+                     ))}
                     {(chats.length === 0) && <h1 className='nochat'>------ NO Chats ------</h1>}
                 </ul>
             </div>
@@ -39,19 +36,8 @@ class Group extends Component {
     }
 }
 
-const mapStateToProps =({ chats, fetching, error }) =>{
-    return {
-        chats,
-        fetching,
-        error
-    };
-}
 
-const mapDispatchToProps = {
-    fetchGroupChats
-}
-
-export default connect(mapStateToProps, mapDispatchToProps) (Group);
+export default Group;
     
 
 

@@ -1,30 +1,17 @@
 import React, { Component } from 'react'
-import { fetchPersonalChats } from '../chat/actions/chatsAction'
-// import { fetchGroupChats } from '../chat/actions/chatsAction'
-
-import { connect } from 'react-redux'
 
 
 class ChatProfileContainer extends Component {
 
-    state ={
-        personal: []
-    };
-
-    componentDidMount(){
-        this.props.fetchPersonalChats();
-        // this.props.fetchGroupChats();
+    state={
+        openChat:[]
     }
-    
     
     
     render() {
         
-        
-        const queryParams = new URLSearchParams(window.location.search);
-        const chatId = queryParams.get('chatId');
-        const {chats} = this.props;
-        const openChat = chats.filter((chat)=>chat.id == chatId)
+        const { openChat } = this.state
+
         return (
             <>
             {openChat.map(chat => (
@@ -44,24 +31,13 @@ class ChatProfileContainer extends Component {
                 <button type="button" className="btn btn-outline-danger btn-sm" style={{marginTop:'20px'}}>Delete Chat</button>
                 </div>                
             </div>
-            ))}
+             ))} 
             </>
         );
     }
 }
 
-const mapStateToProps =({ chats, fetching, error }) =>{
-    return {
-        chats,
-        fetching,
-        error
-    };
-}
 
-const mapDispatchToProps = {
-    fetchPersonalChats,
-    // fetchGroupChats
-}
 
-export default connect(mapStateToProps, mapDispatchToProps) (ChatProfileContainer);
+export default ChatProfileContainer;
     

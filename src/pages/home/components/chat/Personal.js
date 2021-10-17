@@ -1,27 +1,17 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import './chattype.css'
-import { fetchPersonalChats } from './actions/chatsAction'
 import ChatDetail from './ChatDetail'
 import PresonalChatIcon from '../../../../shared/PresonalChatIcon'
 
 class Personal extends Component {    
     state ={
-        personal: []
+        personal: [],
+        chats:[]
     };
 
-    componentDidMount(){
-        this.props.fetchPersonalChats();
-    }
-
-     getDate(date) {
-        var d = new Date(date);
-        var time = d.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
-        return time;
-    }
 
     render() {
-        const {chats} = this.props;
+        const {chats} = this.state;
         return (
             <div>
                 <ul>
@@ -40,19 +30,7 @@ class Personal extends Component {
     }
 }
 
-const mapStateToProps =({ chats, fetching, error }) =>{
-    return {
-        chats,
-        fetching,
-        error
-    };
-}
-
-const mapDispatchToProps = {
-    fetchPersonalChats
-}
-
-export default connect(mapStateToProps, mapDispatchToProps) (Personal);
+export default Personal;
     
 
 

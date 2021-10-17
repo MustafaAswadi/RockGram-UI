@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { fetchMessages, } from './actions/messageAction'
 import CreateMessage from './CreateMessage'
 
 import Recevier from './Recevier'
@@ -12,12 +10,11 @@ class MessageContainer extends Component {
     
 
     state ={
-        msg: []
+        // msg: []
+        activUserId : true
     };
     componentDidMount(){
-        const queryParams = new URLSearchParams(window.location.search);
-        const chatId = queryParams.get('chatId');
-        this.props.fetchMessages(chatId);
+
         
     }
 
@@ -28,8 +25,7 @@ class MessageContainer extends Component {
     }
    
     render() {
-        const {messages} = this.props;
-        const activUserId = sessionStorage.getItem('activeUserId')
+        const {msg: messages} = this.props;
         return (
         <div className='home-com message-seaction'>
 
@@ -37,7 +33,7 @@ class MessageContainer extends Component {
                <div id='msg-content2'>
                 {(messages === undefined) ? 'Loading': messages.map(message => (
                     <div key={message.id}>  
-                        {(message.userId == activUserId)  ?
+                        {(message.userId == this.state.activUserId)  ?
                             <Sender time={this.getDate(message.date)} text={message.text} />:
                             <Recevier time={this.getDate(message.date)} text={message.text}/>
                         }
@@ -55,19 +51,8 @@ class MessageContainer extends Component {
     }
 }
 
-const mapStateToProps =({ messages, fetching, error }) =>{
-    return {
-        messages,
-        fetching,
-        error
-    };
-}
 
-const mapDispatchToProps = {
-    fetchMessages,
-}
-
-export default connect(mapStateToProps, mapDispatchToProps) (MessageContainer);
+export default MessageContainer;
     
 
 

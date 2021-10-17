@@ -5,50 +5,11 @@ import { Link } from 'react-router-dom'
 import Getapp from '../../shared/Getapp'
 import Header from '../../shared/Header'
 import React, {useState} from 'react'
-import Axios from 'axios'
-import {useHistory} from 'react-router-dom'
-import PropTypes from 'prop-types';
 
 
-async function loginUser(credentials) {
-
-     await Axios({
-        method: 'post',
-        url: 'http://localhost:3002/auth/login',
-        data: {email: credentials.email, password: credentials.password}
-    }).then(res => {
-        tken = res.data[1];
-        activeUserId = res.data[0]['id']
-        userName = res.data[0]['fullname']
-        userEmail =res.data[0]['email']
-        return res.data;
-    })
-   }
-   var tken;
-   var activeUserId; 
-   var userName;
-   var userEmail;
-   export default function Login({setToken,}) {
-    const history = useHistory();
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-
-    const handleSubmit = async e => {
-        e.preventDefault()
-        const token = await loginUser({
-          email,
-          password
-        });
-        sessionStorage.setItem('activeUserId', activeUserId )
-        sessionStorage.setItem('userName', userName )
-        sessionStorage.setItem('userEmail', userEmail )
-        setToken(tken);
-        history.push('/home');
-      }
-
-
-    return (
-
+class Login extends React.Component {
+    render() { 
+        return (
         <div className='container' >
             <div className='row align-items-center'>
                 <div className="col" id='intro'>
@@ -56,15 +17,15 @@ async function loginUser(credentials) {
                     <img src={main} alt="rockgram logo"  className='main-logo' />
                 </div>
                 <div className="col">
-                    <form className='login-form cart' onSubmit={handleSubmit}>
+                    <form className='login-form cart' >
                         <div className='header'>
                             <img src={Logo} alt="rockgram logo"  className='login-logo' style={{marginBottom: '3rem'}} />
                         </div>
                         <div className="mb-3">
-                            <input type="email" className="form-control" id="Email" placeholder='Email' aria-describedby="emailHelp" onChange={e => setEmail(e.target.value)}/>
+                            <input type="email" className="form-control" id="Email" placeholder='Email' aria-describedby="emailHelp"/>
                         </div>
                         <div className="mb-3">
-                            <input type="password" className="form-control" placeholder='Password' id="Password" onChange={e => setPassword(e.target.value)}/>
+                            <input type="password" className="form-control" placeholder='Password' id="Password"/>
                         </div>
                         <div className='d-grid gap-2'>
                             <button type="submit" className="btn btn-danger btn-login">Login</button>
@@ -80,9 +41,9 @@ async function loginUser(credentials) {
                 </div>
             </div>
         </div>
-    )
+    );
+    }
 }
+ 
+export default Login;
 
-Login.propTypes = {
-    setToken: PropTypes.func.isRequired
-  };
