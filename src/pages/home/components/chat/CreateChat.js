@@ -1,39 +1,10 @@
 import React,{ useState } from 'react'
 import Modal from '../../../../shared/Modal'
-import Axios from 'axios'
 
 
-async function createChat(data) {
-    const token = sessionStorage.getItem('token')
-    const queryParams = new URLSearchParams(window.location.search);
-    const chatId = queryParams.get('chatId');
-        await Axios({
-           method: 'post',
-           url: `http://localhost:3002/chat/personal`,
-           data: {memberEmail: data.email},
-           headers: { Authorization: `Bearer ${token}` }
-    
-       }).then(res => {
-           refreshPage();
-           return res.data;
-       })
-       function refreshPage() {
-        setTimeout(()=>{
-            window.location.reload(true)
-        },200)
-    }
-    }
 
 const CreateChat = (props) => {
-    const {addMember, setAddMember} = useState(1)
-    const [email, setEmail] = useState();
-    const handleSubmit = async e => {
-        e.preventDefault();
-        createChat({
-          email
-        });
-    }
-
+const [addMember, setState] =useState(true)
 
     return (
         <div>
@@ -47,15 +18,15 @@ const CreateChat = (props) => {
                 </div>
             </div>
             <Modal title={props.modalTitle} id='addchat'>
-                <form className="login-form cart" onSubmit={handleSubmit}>
+                <form className="login-form cart" >
                     {props.isPersonal && <div className="mb-3">
                         <input type="text" className="form-control" id="chatName" placeholder="Groups Name" />
                     </div>}
                     <div className="mb-3">
-                        <input type="email" className="form-control" id="Email1" placeholder="Email" aria-describedby="emailHelp" onChange={e => setEmail(e.target.value)}/>
+                        <input type="email" className="form-control" id="Email1" placeholder="Email" aria-describedby="emailHelp" />
                         {addMember && <input type="email" className="form-control" id="Email1" placeholder="Email" aria-describedby="emailHelp"/>}
                     </div>
-                    {props.isPersonal && <button className='addMembertoGroups' onClick={()=>setAddMember(2)}>+</button>}
+                    {props.isPersonal && <button className='addMembertoGroups'>+</button>}
                     <div className="d-grid gap-2">
                         <button type="submit" className="btn btn-danger btn-login">Create</button>
                     </div>
