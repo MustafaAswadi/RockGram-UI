@@ -1,15 +1,22 @@
 import './components/home.css'
 import logo from '../../assets/img/logo2.png'
-import  {React, useEffect} from 'react';
+import  React from 'react';
 import Message from './components/message/Message';
 import Profile from './components/profile/Profile';
 import Chat from './components/chat/Chat';
 
-
-
-const Home = () => {
-    return (
-        <div className='container-fluid'>
+interface HomeProps {
+    
+}
+ 
+interface HomeState {
+    
+}
+ 
+class Home extends React.Component<HomeProps, HomeState> {
+    render() { 
+        return (  
+            <div className='container-fluid'>
 
             <nav className="navbar navbar-light fixed-top" style={{padding:'30px',}} >
                 <div className="container-fluid" style={{ marginTop: '0px'}}>
@@ -34,7 +41,10 @@ const Home = () => {
             
             </div>
         </div>
-    )
+   
+        );
+    }
 }
+ 
+export default Home;
 
-export default Home

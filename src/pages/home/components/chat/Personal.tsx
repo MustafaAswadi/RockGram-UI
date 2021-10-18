@@ -30,7 +30,7 @@ class Personal extends React.Component<PersonalProps, PersonalState> {
                 <ul>
                     
                     {this.state.chats.map(chat => (
-                        <ChatDetail >
+                        <ChatDetail chat={chat} >
                             <PresonalChatIcon width='30'/>
                         </ChatDetail>     
                     ))}

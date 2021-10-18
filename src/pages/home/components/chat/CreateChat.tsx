@@ -5,7 +5,7 @@ import CreateGroupChat from './CreateGroupChat';
 
 
 interface CreateChatProps {
-    
+    isPersonal:boolean,
 }
  
 interface CreateChatState {
@@ -26,7 +26,7 @@ class CreateChat extends React.Component<CreateChatProps, CreateChatState> {
                         </button>
                     </div>
                 </div>
-                {true ? <CreatePersonalChat/> : <CreateGroupChat />}
+                {this.props.isPersonal ? <CreatePersonalChat/> : <CreateGroupChat />}
             </div>
         )
     }

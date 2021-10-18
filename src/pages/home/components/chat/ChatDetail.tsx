@@ -1,7 +1,13 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-class ChatDetail extends React.Component {
+
+interface ChatDetailProps{
+    chat:any,
+  
+}
+
+class ChatDetail extends React.Component<ChatDetailProps> {
     // state = {
     //     chat:{}      
     // }

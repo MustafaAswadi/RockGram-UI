@@ -1,7 +1,7 @@
 import '../../assets/styles/login.css'
 import Logo from '../../assets/img/logo2.png'
 import main2 from '../../assets/img/main2.png'
-import React, {useState} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import Getapp from '../../shared/Getapp'
 import Header from '../../shared/Header'
@@ -12,7 +12,7 @@ class Signup extends React.Component {
       <div className='container' style={{marginTop:'30px'}}>
         <div className='row align-items-center'>
             <div className="col" id='intro2'>
-                <Header />
+                <Header style={null} />
                 <img src={main2} alt="rockgram logo"  className='main2-logo'  />
                <Getapp/>
             </div>

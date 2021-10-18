@@ -1,6 +1,5 @@
-import React,{ useState } from 'react'
+import React from 'react'
 import Modal from '../../../../shared/Modal'
-import Axios from 'axios'
 
 class CreatePersonalChat extends React.Component {
     render() { 

@@ -4,7 +4,7 @@ import main from '../../assets/img/main.jpg'
 import { Link } from 'react-router-dom'
 import Getapp from '../../shared/Getapp'
 import Header from '../../shared/Header'
-import React, {useState} from 'react'
+import React from 'react'
 
 
 class Login extends React.Component {

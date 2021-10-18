@@ -1,14 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
 import CreateMessage from './CreateMessage'
 
 import Recevier from './Recevier'
 import Sender from './Sender'
 
 
-
-class MessageContainer extends Component {
+interface MessageContainerProps {
+    msg:any
+}
+ 
+interface MessageContainerState {
     
-
+}
+ 
+class MessageContainer extends React.Component<MessageContainerProps, MessageContainerState> {
     state ={
         // msg: []
         activUserId : true
@@ -18,7 +23,7 @@ class MessageContainer extends Component {
         
     }
 
-     getDate(date) {
+     getDate(date: any) {
         var d = new Date(date);
         var time = d.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
         return time;
@@ -31,11 +36,11 @@ class MessageContainer extends Component {
 
             <div className='message-contant' id='msg-content'>
                <div id='msg-content2'>
-                {(messages === undefined) ? 'Loading': messages.map(message => (
+                {(messages === undefined) ? 'Loading': messages.map((message: any) => (
                     <div key={message.id}>  
-                        {(message.userId == this.state.activUserId)  ?
-                            <Sender time={this.getDate(message.date)} text={message.text} />:
-                            <Recevier time={this.getDate(message.date)} text={message.text}/>
+                        {(message.userId === this.state.activUserId)  ?
+                            <Sender message={message} />:
+                            <Recevier message={message}/>
                         }
                     </div>
                 ))}                
@@ -50,9 +55,7 @@ class MessageContainer extends Component {
         )
     }
 }
-
-
+ 
 export default MessageContainer;
-    
 
 

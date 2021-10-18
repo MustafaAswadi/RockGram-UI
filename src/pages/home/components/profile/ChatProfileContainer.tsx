@@ -1,10 +1,19 @@
-import React, { Component } from 'react'
+import React  from 'react'
 
 
-class ChatProfileContainer extends Component {
+interface ChatProfileContainerProps {
+    
+}
+ 
+interface ChatProfileContainerState {
+    
+}
+ 
+class ChatProfileContainer extends React.Component<ChatProfileContainerProps, ChatProfileContainerState> {
+
 
     state={
-        openChat:[]
+        openChat:[{id:'',name:'', type:''}]
     }
     
     

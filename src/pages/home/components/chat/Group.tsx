@@ -2,8 +2,7 @@
 import React, { Component } from 'react'
 import './chattype.css'
 import ChatDetail from './ChatDetail';
-import GroupsChatIcon from '../../../../shared/GroupsChatIcon';
-
+import GroupsChatIcon from '../../../../shared/GroupsChatIcon'
 
 
 class Group extends Component {    
@@ -11,7 +10,7 @@ class Group extends Component {
         chats:[]
     }
 
-     getDate(date) {
+     getDate(date: any) {
         var d = new Date(date);
         var time = d.toLocaleString([], { hour: '2-digit', minute: '2-digit' });
         return time;
@@ -24,7 +23,7 @@ class Group extends Component {
             <div>
                 <ul>
                     {chats.map(chat => (
-                         <ChatDetail key={chat.id} name={chat.name} time={this.getDate(chat.date)} chatId={chat.id}>
+                         <ChatDetail  chat={chat}>
                             <GroupsChatIcon width='30'/>
                         </ChatDetail>      
                      ))}
